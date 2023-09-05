@@ -1,0 +1,53 @@
+<div class="flex-shrink-0 p-3 bg-white w-auto">
+  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+    <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+    <span class="fs-5 fw-semibold">TeeVeeAcc</span>
+  </a>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+        Сотрудники
+      </button>
+      <div class="collapse" id="home-collapse" style="">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="{% url 'employees:create_employees' %}" class="link-dark d-inline-flex text-decoration-none rounded">Создать</a></li>
+          <li><a href="{% url 'employees:show_employees' %}" class="link-dark d-inline-flex text-decoration-none rounded">Список</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+        Ресурсы
+      </button>
+      <div class="collapse" id="dashboard-collapse" style="">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="{% url 'resources:create_resource' %}" class="link-dark d-inline-flex text-decoration-none rounded">Создать</a></li>
+          <li><a href="{% url 'resources:show_resources' %}" class="link-dark d-inline-flex text-decoration-none rounded">Список</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+        Аккаунты
+      </button>
+      <div class="collapse" id="orders-collapse" style="">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="{% url 'accounts:show_all_accounts' %}" class="link-dark d-inline-flex text-decoration-none rounded">Список</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="border-top my-3"></li>
+    <li class="mb-1">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        Учетная запись
+      </button>
+      <div class="collapse" id="account-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Профиль</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Настройки</a></li>
+          <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Выйти</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

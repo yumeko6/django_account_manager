@@ -1,0 +1,33 @@
+{% if searched %}
+  <div class="flex-shrink-0 p-3 bg-white w-auto">
+    <h5 align="center">По запросу {{ request.GET.query }} найдено {{ search_description }}: {{ object_list.count }}</h5>
+  </div>
+{% endif %}
+<div class="flex-shrink-0 p-3 bg-white w-auto">
+  <h5 align="center">Создано {{ search_description }}: {{ data.count }}</h5>
+  <p align="center">Проверить наличие {{ search_description_text }} можно с помощью поиска.</p>
+  <p align="center">Поиск осуществляется по названию или ссылке.</p>
+</div>
+<form
+    class="col-12 col-lg-auto mb-3 mb-lg-0"
+    action="{% if model == 'employees' %} {% url 'employees:search_results' %}
+          {% else %} {% url 'resources:search_results' %} {% endif %}"
+    method="get">
+  <input
+      name="query"
+      list="datalistOptions"
+      type="search"
+      class="form-control form-control-dark"
+      placeholder="Search..."
+      aria-label="Search"
+      required>
+  <datalist id="datalistOptions">
+    {% for obj in data %}
+    {% if model == 'employees' %}
+    <option value="{{ obj.lastname }} {{ obj.firstname }}" aria-live="off">
+      {% else %}
+    <option value="{{ obj.title }}" aria-live="off">
+      {% endif %}
+      {% endfor %}
+  </datalist>
+</form>

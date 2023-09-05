@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    {% for account in page_obj %}
+      {% include 'accounts/includes/one_account.html' %}
+    {% endfor %}
+    {% include 'includes/pagination.html' %}
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}

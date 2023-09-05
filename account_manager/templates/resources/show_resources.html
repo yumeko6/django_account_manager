@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    {% for resource in page_obj %}
+      {% include 'resources/includes/one_resource.html' %}
+    {% endfor %}
+    {% include 'includes/pagination.html' %}
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}

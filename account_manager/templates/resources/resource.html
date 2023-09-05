@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    <div class="list-group-item list-group-item d-flex gap-1 py-2" aria-current="true">
+      <div class="d-flex gap-2 w-100 justify-content-left">
+        <div>
+          <h6 class="mb-0">Название: {{ resource.title }}</h6>
+          <p class="mb-0 opacity-75">Автор: {{ resource.author.username }}</p>
+          <a class="mb-0 opacity-75" href="{{ resource.url }}">Ссылка: {{ resource.url }}</a>
+          <p class="mb-0 opacity-75">Дата создания: {{ resource.pub_date }}</p>
+          <p class="mb-0 opacity-75">Дата изменения: {{ resource.change_date }}</p>
+          <p class="mb-0 opacity-75">Примечание: {{ resource.note }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}

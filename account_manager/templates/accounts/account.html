@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    <div class="list-group-item list-group-item d-flex gap-1 py-2" aria-current="true">
+      <div class="d-flex gap-2 w-100 justify-content-left">
+        <div>
+          <h6 class="mb-0">Название: {{ account.name }}</h6>
+          <a class="mb-0 opacity-75" href="{{ account.name.url }}">Ссылка: {{ account.name.url }}</a>
+          <p class="mb-0 opacity-75">Сотрудник: {{ account.user }}</p>
+          <p class="mb-0 opacity-75">Способ входа: {{ account.get_login_method_display }}</p>
+          <p class="mb-0 opacity-75">Тип аккаунта: {{ account.get_account_type_display }}</p>
+          <p class="mb-0 opacity-75">Роль в системе: {{ account.get_role_display }}</p>
+          <p class="mb-0 opacity-75">Автор: {{ account.author.username }}</p>
+          <p class="mb-0 opacity-75">Дата создания: {{ account.pub_date.date }}</p>
+          <p class="mb-0 opacity-75">Дата изменения: {{ account.change_date.date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}

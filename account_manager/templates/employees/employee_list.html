@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    {% for employee in founded_employees %}
+      {% include 'employees/includes/one_employee.html' %}
+    {% endfor %}
+    {% include 'includes/pagination.html' %}
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}
+

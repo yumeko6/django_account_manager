@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <div class="list-group w-auto">
+    <div class="list-group-item list-group-item d-flex gap-1 py-2" aria-current="true">
+      <div class="d-flex gap-2 w-100 justify-content-left">
+        <div>
+          <h6 class="mb-0">ФИО: {{ employee.lastname }} {{ employee.firstname }} {{ employee.middlename }}</h6>
+          <p class="mb-0 opacity-75">Почта: {{ employee.email }}</p>
+          <p class="mb-0 opacity-75">Должность: {{ employee.position }}</p>
+          <p class="mb-0 opacity-75">Телефон: {{ employee.phone }}</p>
+          <p class="mb-0 opacity-75">Короткий номер: {{ employee.extension }}</p>
+          <p class="mb-0 opacity-75">Автор: {{ employee.author.username }}</p>
+          <p class="mb-0 opacity-75">Дата создания: {{ employee.pub_date.date }}</p>
+          <p class="mb-0 opacity-75">Дата изменения: {{ employee.change_date.date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block search %}
+  {% include 'includes/search.html' %}
+{% endblock %}

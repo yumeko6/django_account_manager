@@ -1,0 +1,29 @@
+{% load static %}
+<div class="list-group-item list-group-item d-flex gap-1 py-2" aria-current="true">
+  <div class="d-flex gap-2 w-100 justify-content-between">
+
+    <div>
+      <h6 class="mb-0">{{ account.name }}</h6>
+      <p class="mb-0 opacity-75">{{ account.user }}</p>
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+      <div class="btn-group me-1" role="group" aria-label="Account group">
+        <form action="{% url 'accounts:show_account' account.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 m-1">
+            <img src="{% static 'img/binoculars.svg' %}" alt="binoculars" align="right">
+          </button>
+        </form>
+
+        <form action="{% url 'accounts:edit_account' account.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 mr-1">
+            <img src="{% static 'img/pencil.svg' %}" alt="pencil" align="right">
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>

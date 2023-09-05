@@ -1,0 +1,44 @@
+{% load static %}
+<div class="list-group-item list-group-item d-flex gap-1 py-2" aria-current="true">
+  <div class="d-flex gap-2 w-100 justify-content-between">
+
+    <div>
+      <h6 class="mb-0">{{ employee.lastname }} {{ employee.firstname }}</h6>
+      <p class="mb-0 opacity-75">{{ employee.email }}</p>
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+      <div class="btn-group me-3" role="group" aria-label="Employee group">
+        <form action="{% url 'employees:show_employee' employee.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 m-1">
+            <img src="{% static 'img/binoculars.svg' %}" alt="binoculars" align="right">
+          </button>
+        </form>
+
+        <form action="{% url 'employees:edit_employees' employee.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 mr-1">
+            <img src="{% static 'img/pencil.svg' %}" alt="pencil" align="right">
+          </button>
+        </form>
+      </div>
+
+      <div class="btn-group" role="group" aria-label="Account group">
+        <form action="{% url 'accounts:create_accounts' employee.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 m-1">
+            <img src="{% static 'img/person-plus.svg' %}" alt="person-plus" align="right">
+          </button>
+        </form>
+
+        <form action="{% url 'accounts:show_accounts' employee.id %}">
+          <button type="submit" class="btn btn-sm btn-outline-secondary mt-2 mr-1 position-relative">
+            <img src="{% static 'img/person-vcard.svg' %}" alt="person-vcard" align="right">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">{{ employee.account_set.count }}</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
